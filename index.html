@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
 
-  Score
-  Rules
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <header>
+      <div class="header__title">
+        <img src="images/logo.svg" alt="logo of rock paper scissors game" />
+      </div>
+      <div class="header__score text">
+        <div class="header__score__name">Score</div>
+        <div class="header__score__points">X</div>
+      </div>
+    </header>
 
-  You Picked
-  The House Picked
+    <main>
+      <div class="container">
+        <div class="circle" id="blue">
+          <img src="images/icon-paper.svg" alt="icon paper" />
+        </div>
 
-  You Win
-  You Lose
+        <div class="circle" id="yellow">
+          <img src="images/icon-scissors.svg" alt="icon scissors" />
+        </div>
 
-  Play Again
+        <div class="circle" id="red">
+          <img src="images/icon-rock.svg" alt="icon rock" />
+        </div>
+      </div>
+      <div class="rules text">rules</div>
+    </main>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        ><br />
+        Coded by
+        <a href="https://github.com/ChloeDelphis?tab=repositories">Chloé</a>
+      </div>
+    </footer>
+  </body>
 </html>

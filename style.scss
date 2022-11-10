@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  body {
+    // height: 100vh;
+    // background: radial-gradient(
+    //     circle farthest-corner at top left,
+    //     hsl(214, 47%, 23%),
+    //     hsl(237, 49%, 15%)
+    background-color: hsl(237, 49%, 15%);
+    margin: 10%;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+
+    .text {
+      font-family: "Barlow Semi Condensed", sans-serif;
+      text-transform: uppercase;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      border: solid 0.3rem hsl(217, 16%, 45%);
+      border-radius: 0.8rem;
+      padding: 5%;
+
+      .header__title {
+        flex-basis: 40%;
+        // background-color: yellow;
+        img {
+          width: 100%;
+        }
+      }
+
+      .header__score {
+        flex-basis: 25%;
+        background-color: white;
+        border-radius: 0.3rem;
+        padding: 2%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        font-weight: bold;
+
+        &__name {
+          // background-color: yellow;
+          height: 33%;
+          color: hsl(229, 64%, 46%);
+          font-size: 100%;
+        }
+
+        &__points {
+          // background-color: green;
+          height: 66%;
+          color: hsl(229, 25%, 31%);
+          vertical-align: middle;
+          font-size: 250%;
+        }
+      }
+    }
+
+    main {
+      // border: solid pink 3px;
+      height: 65vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .container {
+        margin-top: 10%;
+        height: 80%;
+        background-image: url(images/bg-triangle.svg);
+        background-size: 50vw;
+        background-repeat: no-repeat;
+        background-position: center 50px;
+        position: relative;
+
+        .circle {
+          position: absolute;
+          // display: inline-block;
+          background-color: white;
+          border-radius: 50%;
+          height: 8rem;
+          width: 8rem;
+          padding: 13%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: 4rem;
+          }
+        }
+        #blue {
+          border: solid 1.2rem hsl(230, 89%, 62%);
+          top: 6%;
+          left: 12%;
+        }
+        #yellow {
+          border: solid 1.2rem hsl(39, 89%, 49%);
+          top: 6%;
+          right: 12%;
+        }
+        #red {
+          border: solid 1.2rem hsl(349, 71%, 52%);
+          left: 32%;
+          bottom: 28%;
+        }
+      }
+
+      .rules {
+        display: inline-block;
+        color: white;
+        font-size: 1.8rem;
+        // width: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        border: solid white 0.16rem;
+        border-radius: 1rem;
+        padding: 0.8rem 4rem;
+      }
+    }
+  }
+
+  footer {
+    margin-top: 8%;
+    display: flex;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    // text-transform: uppercase;
+    font-size: 1.2rem;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+}
