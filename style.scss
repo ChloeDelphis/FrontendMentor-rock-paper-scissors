@@ -1,22 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap");
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 html {
   font-size: 62.5%;
 
   body {
-    // height: 100vh;
+    height: 100vh;
     // background: radial-gradient(
     //     circle farthest-corner at top left,
     //     hsl(214, 47%, 23%),
     //     hsl(237, 49%, 15%)
-    background-color: hsl(237, 49%, 15%);
-    margin: 10%;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
+    background-color: hsl(214, 47%, 23%);
+    padding: 10% 10% 5% 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .text {
       font-family: "Barlow Semi Condensed", sans-serif;
@@ -24,6 +25,7 @@ html {
     }
 
     header {
+      // background-color: violet;
       display: flex;
       justify-content: space-between;
       border: solid 0.3rem hsl(217, 16%, 45%);
@@ -66,14 +68,18 @@ html {
     }
 
     main {
+      // background-color: yellow;
       // border: solid pink 3px;
-      height: 65vh;
+      height: 100%;
       width: 100%;
       display: flex;
       flex-direction: column;
+      margin-top: 10%;
+      // margin-bottom: 10%;
 
       .container {
-        margin-top: 10%;
+        // margin-top: 10%;
+        // margin-bottom: 10%;
         height: 80%;
         background-image: url(images/bg-triangle.svg);
         background-size: 50vw;
@@ -99,18 +105,18 @@ html {
         }
         #blue {
           border: solid 1.2rem hsl(230, 89%, 62%);
-          top: 6%;
+          top: 10px;
           left: 12%;
         }
         #yellow {
           border: solid 1.2rem hsl(39, 89%, 49%);
-          top: 6%;
+          top: 10px;
           right: 12%;
         }
         #red {
           border: solid 1.2rem hsl(349, 71%, 52%);
           left: 32%;
-          bottom: 28%;
+          top: 130px;
         }
       }
 
@@ -129,7 +135,8 @@ html {
   }
 
   footer {
-    margin-top: 8%;
+    // background-color: pink;
+    padding-bottom: 5%;
     display: flex;
     height: 10vh;
     align-items: center;
@@ -138,6 +145,7 @@ html {
     color: white;
     // text-transform: uppercase;
     font-size: 1.2rem;
+    line-height: 4ex;
 
     a {
       text-decoration: none;
