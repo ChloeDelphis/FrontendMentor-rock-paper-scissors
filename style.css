@@ -6,6 +6,8 @@
 
 html {
   font-size: 62.5%;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  text-transform: uppercase;
 }
 html body {
   height: 100vh;
@@ -15,9 +17,39 @@ html body {
   flex-direction: column;
   justify-content: space-between;
 }
-html body .text {
-  font-family: "Barlow Semi Condensed", sans-serif;
-  text-transform: uppercase;
+html body .hidden {
+  visibility: hidden;
+}
+html body .rules {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20% 10%;
+}
+html body .rules__name {
+  font-weight: bold;
+  color: #343d5b;
+  font-size: 3rem;
+  text-align: center;
+  height: 20%;
+}
+html body .rules__image img {
+  width: 100%;
+}
+html body .rules__cross {
+  text-transform: lowercase;
+  height: 10%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ccced1;
 }
 html body header {
   display: flex;
@@ -97,7 +129,7 @@ html body main .container #red {
   left: 32%;
   top: 130px;
 }
-html body main .rules {
+html body main .seerules {
   display: inline-block;
   color: white;
   font-size: 1.8rem;
