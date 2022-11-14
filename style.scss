@@ -8,6 +8,8 @@ html {
   font-size: 62.5%;
   font-family: "Barlow Semi Condensed", sans-serif;
   text-transform: uppercase;
+  font-weight: bold;
+  color: white;
 
   body {
     height: 100vh;
@@ -39,7 +41,6 @@ html {
       padding: 20% 10%;
 
       &__name {
-        font-weight: bold;
         color: #343d5b;
         font-size: 3rem;
         text-align: center;
@@ -55,7 +56,6 @@ html {
         height: 10%;
         text-align: center;
         font-size: 3rem;
-        font-weight: bold;
         color: #ccced1;
       }
     }
@@ -84,7 +84,6 @@ html {
         text-align: center;
         display: flex;
         flex-direction: column;
-        font-weight: bold;
 
         &__name {
           // background-color: yellow;
@@ -113,6 +112,33 @@ html {
       margin-top: 10%;
       // margin-bottom: 10%;
 
+      .circle {
+        position: absolute;
+        // display: inline-block;
+        background-color: white;
+        border-radius: 50%;
+        height: 8rem;
+        width: 8rem;
+        padding: 13%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 4rem;
+        }
+      }
+
+      .blue {
+        border: solid 1.2rem hsl(230, 89%, 62%);
+      }
+      .yellow {
+        border: solid 1.2rem hsl(39, 89%, 49%);
+      }
+      .red {
+        border: solid 1.2rem hsl(349, 71%, 52%);
+      }
+
       .container {
         // margin-top: 10%;
         // margin-bottom: 10%;
@@ -123,70 +149,108 @@ html {
         background-position: center 50px;
         position: relative;
 
-        .circle {
-          position: absolute;
-          // display: inline-block;
-          background-color: white;
-          border-radius: 50%;
-          height: 8rem;
-          width: 8rem;
-          padding: 13%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          img {
-            width: 4rem;
-          }
-        }
         #blue {
-          border: solid 1.2rem hsl(230, 89%, 62%);
           top: 10px;
           left: 12%;
         }
+
         #yellow {
-          border: solid 1.2rem hsl(39, 89%, 49%);
           top: 10px;
           right: 12%;
         }
+
         #red {
-          border: solid 1.2rem hsl(349, 71%, 52%);
           left: 32%;
           top: 130px;
         }
       }
 
-      .seerules {
-        display: inline-block;
-        color: white;
-        font-size: 1.8rem;
-        // width: 50px;
-        margin-left: auto;
-        margin-right: auto;
-        border: solid white 0.16rem;
-        border-radius: 1rem;
-        padding: 0.8rem 4rem;
+      .results {
+        position: absolute;
+        width: 80%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+
+        &__choice {
+          // background-color: pink;
+          height: 50%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          &__singular {
+            // background-color: yellowgreen;
+            height: 100%;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+          }
+          &__text {
+            position: absolute;
+            top: 8em;
+            font-size: 1.5em;
+          }
+        }
+
+        &__result {
+          // background-color: aquamarine;
+          height: 50%;
+          text-align: center;
+
+          &__text {
+            margin: 0.5em 0 0.5em 0;
+            font-size: 4em;
+          }
+
+          &__play-again {
+            display: inline-block;
+            background-color: white;
+            font-size: 2em;
+            color: hsl(214, 47%, 23%);
+            border: solid 1px white;
+            border-radius: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0.8rem 4rem;
+          }
+        }
       }
     }
-  }
 
-  footer {
-    // background-color: pink;
-    padding-bottom: 5%;
-    display: flex;
-    height: 10vh;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    // text-transform: uppercase;
-    font-size: 1.2rem;
-    line-height: 4ex;
+    .seerules {
+      display: inline-block;
 
-    a {
-      text-decoration: none;
-      color: inherit;
-      text-decoration: underline;
+      font-size: 1.5rem;
+      // width: 50px;
+      margin-top: 1em;
+      margin-left: auto;
+      margin-right: auto;
+      border: solid white 0.16rem;
+      border-radius: 1rem;
+      padding: 0.8rem 4rem;
+    }
+
+    footer {
+      // background-color: pink;
+      padding-bottom: 5%;
+      display: flex;
+      height: 10vh;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: normal;
+      font-size: 1.2rem;
+      line-height: 3ex;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        text-decoration: underline;
+      }
     }
   }
 }

@@ -27,6 +27,7 @@
       </div>
       <div class="rules__cross">x</div>
     </div>
+
     <header>
       <div class="header__title">
         <img src="images/logo.svg" alt="logo of rock paper scissors game" />
@@ -39,18 +40,40 @@
 
     <main>
       <div class="container">
-        <div class="circle" id="blue">
+        <div class="circle blue" id="blue">
           <img src="images/icon-paper.svg" alt="icon paper" />
         </div>
 
-        <div class="circle" id="yellow">
+        <div class="circle yellow" id="yellow">
           <img src="images/icon-scissors.svg" alt="icon scissors" />
         </div>
 
-        <div class="circle" id="red">
+        <div class="circle red" id="red">
           <img src="images/icon-rock.svg" alt="icon rock" />
         </div>
       </div>
+
+      <div class="results hidden">
+        <div class="results__choice">
+          <div class="results__choice__singular">
+            <div class="circle red">
+              <img src="images/icon-rock.svg" alt="icon rock" />
+            </div>
+            <div class="results__choice__text">You picked</div>
+          </div>
+          <div class="results__choice__singular">
+            <div class="circle yellow">
+              <img src="images/icon-scissors.svg" alt="icon scissors" />
+            </div>
+            <div class="results__choice__text">The House picked</div>
+          </div>
+        </div>
+        <div class="results__result">
+          <div class="results__result__text">You lose</div>
+          <div class="results__result__play-again">Play again</div>
+        </div>
+      </div>
+
       <div class="seerules text">rules</div>
     </main>
 
@@ -64,5 +87,7 @@
         <a href="https://github.com/ChloeDelphis?tab=repositories">Chloé</a>
       </div>
     </footer>
+
+    <script src="game.js"></script>
   </body>
 </html>
