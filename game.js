@@ -1,3 +1,0 @@
-const game = {
-  intit: function () {},
-};
