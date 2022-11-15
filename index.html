@@ -25,7 +25,7 @@
           alt="rules of the game: scissors beats papers that beats rock that beats scissors"
         />
       </div>
-      <div class="rules__cross">x</div>
+      <div class="rules__cross">X</div>
     </div>
 
     <header>
@@ -34,21 +34,33 @@
       </div>
       <div class="header__score text">
         <div class="header__score__name">Score</div>
-        <div class="header__score__points">X</div>
+        <div class="header__score__points"></div>
       </div>
     </header>
 
     <main>
       <div class="container">
-        <div class="container__game__circle circle blue" id="blue">
+        <div
+          class="container__game__circle circle blue"
+          id="blue"
+          data-shape="paper"
+        >
           <img src="images/icon-paper.svg" alt="icon paper" />
         </div>
 
-        <div class="container__game__circle circle yellow" id="yellow">
+        <div
+          class="container__game__circle circle yellow"
+          id="yellow"
+          data-shape="scissors"
+        >
           <img src="images/icon-scissors.svg" alt="icon scissors" />
         </div>
 
-        <div class="container__game__circle circle red" id="red">
+        <div
+          class="container__game__circle circle red"
+          id="red"
+          data-shape="rock"
+        >
           <img src="images/icon-rock.svg" alt="icon rock" />
         </div>
       </div>
@@ -69,7 +81,7 @@
           </div>
         </div>
         <div class="results__result">
-          <div class="results__result__text">You lose</div>
+          <div class="results__result__text"></div>
           <div class="results__result__play-again">Play again</div>
         </div>
       </div>
