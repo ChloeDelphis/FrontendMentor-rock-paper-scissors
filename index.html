@@ -19,13 +19,14 @@
   <body>
     <div class="rules hidden">
       <div class="rules__name">rules</div>
-      <div class="rules__image">
-        <img
-          src="images/image-rules.svg"
-          alt="rules of the game: scissors beats papers that beats rock that beats scissors"
-        />
-      </div>
-      <div class="rules__cross">X</div>
+
+      <img
+        class="rules__image"
+        src="images/image-rules.svg"
+        alt="rules of the game: scissors beats papers that beats rock that beats scissors"
+      />
+
+      <img src="images/icon-close.svg" class="rules__cross" />
     </div>
 
     <header>
@@ -66,22 +67,20 @@
       </div>
 
       <div class="results hidden">
-        <div class="results__choice">
-          <div class="results__choice__singular user">
-            <div class="circle red">
-              <img src="images/icon-rock.svg" alt="icon rock" />
-            </div>
-            <div class="results__choice__text">You picked</div>
+        <div class="results__choice user">
+          <div class="results__choice__logo circle red">
+            <img src="images/icon-rock.svg" alt="icon rock" />
           </div>
-          <div class="results__choice__singular computer">
-            <div class="circle yellow">
-              <img src="images/icon-scissors.svg" alt="icon scissors" />
-            </div>
-            <div class="results__choice__text">The House picked</div>
+          <div class="results__choice__text">You picked</div>
+        </div>
+        <div class="results__choice computer">
+          <div class="results__choice__logo circle yellow">
+            <img src="images/icon-scissors.svg" alt="icon scissors" />
           </div>
+          <div class="results__choice__text">The House picked</div>
         </div>
         <div class="results__result">
-          <div class="results__result__text"></div>
+          <div class="results__result__text">You win</div>
           <div class="results__result__play-again">Play again</div>
         </div>
       </div>
@@ -94,8 +93,7 @@
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
-        ><br />
-        Coded by
+        >. Coded by
         <a href="https://github.com/ChloeDelphis?tab=repositories">Chloé</a>
       </div>
     </footer>

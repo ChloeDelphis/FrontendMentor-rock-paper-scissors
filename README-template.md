@@ -10,11 +10,9 @@ This is a solution to the [Rock, Paper, Scissors challenge on Frontend Mentor](h
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -24,7 +22,8 @@ Users should be able to:
 
 - View the optimal layout for the game depending on their device's screen size
 - Play Rock, Paper, Scissors against the computer
-- Maintain the state of the score after refreshing the browser
+- Maintain the state of the score after refreshing the browser _(optional)_
+- **Bonus**: Play Rock, Paper, Scissors, Lizard, Spock against the computer _(optional)_
 
 ### Screenshot
 
@@ -32,12 +31,14 @@ Users should be able to:
 
 Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
 
+Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
+
 Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/ChloeDelphis/FrontendMentor-rock-paper-scissors)
+- Live Site URL: [HitHub](https://chloedelphis.github.io/FrontendMentor-rock-paper-scissors/)
 
 ## My process
 
@@ -46,23 +47,24 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Semantic HTML5 markup
 - SCSS
 - Flexbox
+- CSS Grid
 - Mobile-first workflow
 - JavaScript Vanilla
-
-### What I learned
-
-#### [Session Storage :](https://code-garage.fr/blog/comment-utiliser-le-localstorage-pour-stocker-des-donnees-en-local-sur-le-navigateur/)
-
-- Can only stock strings
-- How to transform strings to numbers.
-
-#### [Differences in testing if a variable is empty](https://stackoverflow.com/questions/4597900/checking-something-isempty-in-javascript/)
 
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
 
+### Useful resources
+
+- [About SessionStorage](https://code-garage.fr/blog/comment-utiliser-le-localstorage-pour-stocker-des-donnees-en-local-sur-le-navigateur/) - A useful reminded about Storage, the storage format, and how to convert data type when using what is stored in JavaScript
+- [Differences in testing if variables are empty in JavaScript](https://stackoverflow.com/questions/4597900/checking-something-isempty-in-javascript) - Useful summary
+
+**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+
 ## Author
 
 - GitHub - [ChloeDelphis](https://github.com/ChloeDelphis)
 - Frontend Mentor - [@ChloeDelphis](https://www.frontendmentor.io/profile/ChloeDelphis)
+
+**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
