@@ -12,7 +12,7 @@ const rules = {
     }
   },
 
-  /* Displays rules + Calls darkenOthers */
+  /* Displays rules */
   displayRules: function () {
     const rulesElmnt = document.querySelector(".rules");
     rulesElmnt.classList.toggle("hidden");
@@ -21,8 +21,8 @@ const rules = {
   /* Darkens others elements when rules is open */
   darkenOthers: function () {
     const everything = document.querySelectorAll("body > * :not(.rules *)");
-    everything.forEach((element) => {
-      element.classList.toggle("shaded");
-    });
+    for (el of everything) {
+      el.classList.toggle("shaded");
+    }
   },
 };

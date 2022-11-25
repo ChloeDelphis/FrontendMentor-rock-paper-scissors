@@ -2,8 +2,6 @@
 
 const game = {
   init: function () {
-    // console.log("init // calls playGame and showScore");
-
     // For each choice listens to the click and launches the game
     let choicesElmts = document.querySelectorAll(".container__game");
     for (choice of choicesElmts) {
@@ -17,7 +15,6 @@ const game = {
     playAgainElmt.addEventListener("click", () => {
       game.switchBoards();
       game.reinitializeResultsBoard();
-      // console.log("on appelle switchBoards pour passer");
     });
 
     // Initializes score
@@ -26,22 +23,14 @@ const game = {
 
   /* Gets the choices picked by the user and the computer */
   async playGame(event) {
-    // console.log(
-    //   "playGame // calls computerPicks / SwitchBOards / DisplayUserChoice / after timer displayComputerChoice et CompareChoice"
-    // );
-
     // Gets the choice picked by the user: color + shape
     let userColor = event.currentTarget.getAttribute("id");
     let userShape = event.currentTarget.dataset.shape;
-    // console.log("user color : " + userColor);
-    // console.log("user shape : " + userShape);
 
     // Gets the choice picked by the computer: color + shape
     let computerColor = game.computerPicks();
     let computerShape = document.querySelector("#" + computerColor).dataset
       .shape;
-    // console.log("computer color : " + computerColor);
-    // console.log("computer shape : " + computerShape);
 
     // Calls switchBoards
     game.switchBoards();
@@ -49,26 +38,21 @@ const game = {
     // Calls displayUserChoice
     game.displayUserChoice(userColor, userShape);
 
-    // After a little time (2 reps of the dark-blue circle pulse animation)
-    // Calls displayComputerChoice
-    // console.log("start timer");
-
+    // After a little time
     await game.delay(2000);
-    // console.log("délai de 3.6 secondes, j'appelle displayComputerChoice");
+
+    // Calls displayComputerChoice
     game.displayComputerChoice(computerColor, computerShape);
 
     // Calls compareChoices
-    // console.log("délai de 3.6 secondes, j'appelle compareChoices");
     game.compareChoices(userShape, computerShape);
   },
 
   /* Compares choices and designates winner
    Calls function to update score*/
   compareChoices(userShape, computerShape) {
-    // console.log("Compare Choices // calls displayResult + upsateScore");
     if (userShape === computerShape) {
       game.displayResult("Draw");
-      // console.log("Draw");
     } else if (
       (userShape === "paper" && computerShape === "scissors") ||
       (userShape === "rock" && computerShape === "paper") ||
@@ -76,29 +60,21 @@ const game = {
     ) {
       game.displayResult("You lose");
       game.updateScore(-1);
-
-      // console.log("You lose");
     } else {
       game.displayResult("You win");
       game.updateScore(1);
-
-      // console.log("You win");
     }
   },
 
   /* Makes computer pick a color */
   computerPicks() {
-    // console.log("computerPicks returns computerPick");
     const choices = ["blue", "yellow", "red"];
     let computerPick = Math.floor(Math.random() * choices.length);
-    // console.log("computer picks : " + choices[computerPick]);
     return choices[computerPick];
   },
 
-  /* Initializes score*/
+  /* Initializes score */
   showScore() {
-    // console.log("showScore");
-
     if (sessionStorage.getItem("score") == null) {
       sessionStorage.setItem("score", 0);
     }
@@ -106,20 +82,13 @@ const game = {
     game.displayScore(score);
   },
 
-  /* Updates score*/
+  /* Updates score */
   updateScore(a) {
-    // console.log("updateScore // calls displayScore");
-
     // Gets score for session storage
     let score = parseInt(sessionStorage.getItem("score"));
-    // console.log("score before = " + score);
-    // console.log("typeof = " + typeof score);
 
     // Updates score
     score += a;
-    // console.log("score after = " + score);
-
-    // console.log("score = " + score);
 
     // Log updated score into session storage
     sessionStorage.setItem("score", score);
@@ -128,17 +97,14 @@ const game = {
     game.displayScore(score);
   },
 
-  /* Displays score*/
+  /* Displays score */
   displayScore(score) {
-    // console.log("displayScore");
     scoreElmt = document.querySelector(".header__score__points");
     scoreElmt.innerText = score;
   },
 
+  /* Displays user's choice */
   displayUserChoice(userColor, userShape) {
-    // console.log(
-    //   "displayUserChoice // calls waiting for Comp to remove dark-blue class"
-    // );
     // user's choice: image + shape
     userCircleElmt = document.querySelector(".user .results__choice__logo");
     userCircleElmt.classList.remove("red", "yellow", "blue");
@@ -148,28 +114,25 @@ const game = {
     userImgElmt.src = "images/icon-" + userShape + ".svg";
     userImgElmt.alt = userShape + " logo";
 
-    // On retire la classe dark-blue
+    // Removes dark-blue class from computer loading circle
     game.waitingForComp();
   },
 
+  /* Adds / Removes class dark-blue */
   waitingForComp() {
-    // console.log("waitingForComp adds/remove dark-blue class");
-    // Add / Remove class dark-blue
     wrapperElmt = document.querySelector(
       ".results__choice__logo__wrapper-comp"
     );
     wrapperElmt.classList.toggle("dark-blue");
   },
 
-  /* Returns a promise when timeout is done */
+  /* Returns a promise that will revolve when the time has passed */
   delay(time) {
-    // console.log("delay");
     return new Promise((resolve) => setTimeout(resolve, time));
   },
 
+  /* Displays computer's choice */
   displayComputerChoice(computerColor, computerShape) {
-    // console.log("displayComputerChoice // calls waitingForComp");
-
     // Removes "dark-blue"
     game.waitingForComp();
 
@@ -179,7 +142,6 @@ const game = {
     const computerCircleElmt = document.querySelector(
       ".computer .results__choice__logo"
     );
-    // console.log(computerCircleElmt);
     computerCircleElmt.classList.add(computerColor);
     computerCircleElmt.classList.add("shadow");
 
@@ -191,7 +153,6 @@ const game = {
 
   /* Shows / hides the element for text result */
   resultShowHide() {
-    // console.log("resultsShowHide toggle opaque and appear on results__result");
     // Remove / add class opaque
     // Remove / add class appear
     resultElmt = document.querySelector(".results__result");
@@ -210,10 +171,6 @@ const game = {
   },
 
   reinitializeResultsBoard() {
-    console.log(
-      "reinitializeResultsBoard // calls resultShowHide (pour cacher : class opaque) + retire les classes couleur et ombres sur le logo computer"
-    );
-
     game.resultShowHide();
 
     const computerCircleElmt = document.querySelector(
@@ -229,7 +186,6 @@ const game = {
   /* Switches between game board and results area */
   switchBoards() {
     // Hides / shows game area
-    console.log("switchBoards // toggle hidden sur container + results");
     gameElmt = document.querySelector(".container");
     gameElmt.classList.toggle("hidden");
 
