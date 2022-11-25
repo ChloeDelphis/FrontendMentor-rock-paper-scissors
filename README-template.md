@@ -11,7 +11,7 @@ This is a solution to the [Rock, Paper, Scissors challenge on Frontend Mentor](h
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
+  - [Resources I got to use & things I learnt](resources-i-got-to-use-&-things-i-learnt)
 - [Author](#author)
 
 ## Overview
@@ -53,15 +53,18 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Continued development
 
-I still need to learn a lot about animation.  
-I should also train with z-index (I couldn't make a halo around winner's logo that is underneath other elements)
+I still need to learn a lot about animation, especially timing-function.  
+I should also train with z-index (I couldn't make a halo around winner's logo that is underneath other elements) and make many more tests with gradients.
 
-### Useful resources
+### Resources I got to use & things I learnt
 
-- [About SessionStorage](https://code-garage.fr/blog/comment-utiliser-le-localstorage-pour-stocker-des-donnees-en-local-sur-le-navigateur/) - A useful reminded about Storage, the storage format, and how to convert data type when using what is stored in JavaScript
+- [SessionStorage](https://code-garage.fr/blog/comment-utiliser-le-localstorage-pour-stocker-des-donnees-en-local-sur-le-navigateur/) - A useful reminded about Storage, the storage format, and how to convert data type when using what is stored in JavaScript
 - [Differences in testing if variables are empty in JavaScript](https://stackoverflow.com/questions/4597900/checking-something-isempty-in-javascript) - Useful summary
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit)
+- Gradient cannot be applied to borders
+- [display none !important](https://stackoverflow.com/questions/20663712/css-display-none-not-working)
+- [Maintain the final state of an animation : animation-fill-mode: forwards;](https://prograide.com/pregunta/30191/maintien-de-letat-final-a-la-fin-dune-animation-css3)
+- [setTimeout](https://masteringjs.io/tutorials/fundamentals/wait-1-second-then#:~:text=To%20delay%20a%20function%20execution,call%20fn%20after%201%20second.)
 
 ## Author
 
