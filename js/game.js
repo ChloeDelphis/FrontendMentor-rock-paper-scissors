@@ -2,48 +2,73 @@
 
 const game = {
   init: function () {
-    // sessionStorage.setItem("score", this.score);
-    // condition ? exprSiVrai : exprSiFaux
+    // console.log("init // calls playGame and showScore");
 
-    game.showScore(),
-      (choicesElmts = document.querySelectorAll(".container__game__circle"));
-
+    // For each choice listens to the click and launches the game
+    let choicesElmts = document.querySelectorAll(".container__game");
     for (choice of choicesElmts) {
       choice.addEventListener("click", game.playGame);
     }
 
-    playAgainElmt = document.querySelector(".results__result__play-again");
-    playAgainElmt.addEventListener("click", game.displayGame);
+    // Listens to the click on "play again" button and displays the board game
+    const playAgainElmt = document.querySelector(
+      ".results__result__play-again"
+    );
+    playAgainElmt.addEventListener("click", () => {
+      game.switchBoards();
+      game.reinitializeResultsBoard();
+      // console.log("on appelle switchBoards pour passer");
+    });
+
+    // Initializes score
+    game.showScore();
   },
 
-  playGame(event) {
-    gameElmt = document.querySelector(".container");
-    console.log(gameElmt);
-    gameElmt.classList.remove("hidden");
-
-    resultsElmt = document.querySelector(".results");
-    resultsElmt.classList.add("hidden");
+  /* Gets the choices picked by the user and the computer */
+  async playGame(event) {
+    // console.log(
+    //   "playGame // calls computerPicks / SwitchBOards / DisplayUserChoice / after timer displayComputerChoice et CompareChoice"
+    // );
 
     // Gets the choice picked by the user: color + shape
     let userColor = event.currentTarget.getAttribute("id");
     let userShape = event.currentTarget.dataset.shape;
-    console.log("user color : " + userColor);
-    console.log("user shape : " + userShape);
+    // console.log("user color : " + userColor);
+    // console.log("user shape : " + userShape);
 
     // Gets the choice picked by the computer: color + shape
     let computerColor = game.computerPicks();
     let computerShape = document.querySelector("#" + computerColor).dataset
       .shape;
-    console.log("computer color : " + computerColor);
-    console.log("computer shape : " + computerShape);
+    // console.log("computer color : " + computerColor);
+    // console.log("computer shape : " + computerShape);
 
-    // Display choices
-    game.displayChoices(userColor, userShape, computerColor, computerShape);
+    // Calls switchBoards
+    game.switchBoards();
 
-    // Compares choices and designates winner calls function to update score
+    // Calls displayUserChoice
+    game.displayUserChoice(userColor, userShape);
+
+    // After a little time (2 reps of the dark-blue circle pulse animation)
+    // Calls displayComputerChoice
+    // console.log("start timer");
+
+    await game.delay(2000);
+    // console.log("délai de 3.6 secondes, j'appelle displayComputerChoice");
+    game.displayComputerChoice(computerColor, computerShape);
+
+    // Calls compareChoices
+    // console.log("délai de 3.6 secondes, j'appelle compareChoices");
+    game.compareChoices(userShape, computerShape);
+  },
+
+  /* Compares choices and designates winner
+   Calls function to update score*/
+  compareChoices(userShape, computerShape) {
+    // console.log("Compare Choices // calls displayResult + upsateScore");
     if (userShape === computerShape) {
       game.displayResult("Draw");
-      console.log("Draw");
+      // console.log("Draw");
     } else if (
       (userShape === "paper" && computerShape === "scissors") ||
       (userShape === "rock" && computerShape === "paper") ||
@@ -52,96 +77,163 @@ const game = {
       game.displayResult("You lose");
       game.updateScore(-1);
 
-      console.log("You lose");
+      // console.log("You lose");
     } else {
       game.displayResult("You win");
-
       game.updateScore(1);
 
-      console.log("You win");
+      // console.log("You win");
     }
   },
 
-  // Makes computer pick a color
+  /* Makes computer pick a color */
   computerPicks() {
+    // console.log("computerPicks returns computerPick");
     const choices = ["blue", "yellow", "red"];
     let computerPick = Math.floor(Math.random() * choices.length);
     // console.log("computer picks : " + choices[computerPick]);
     return choices[computerPick];
   },
 
-  //! Initializes score
+  /* Initializes score*/
   showScore() {
+    // console.log("showScore");
+
     if (sessionStorage.getItem("score") == null) {
       sessionStorage.setItem("score", 0);
     }
     let score = parseInt(sessionStorage.getItem("score"));
-    this.displayScore(score);
+    game.displayScore(score);
   },
 
-  //! Updates score
+  /* Updates score*/
   updateScore(a) {
-    score = parseInt(sessionStorage.getItem("score"));
-    console.log("score before = " + score);
-    console.log("typeof = " + typeof score);
+    // console.log("updateScore // calls displayScore");
 
+    // Gets score for session storage
+    let score = parseInt(sessionStorage.getItem("score"));
+    // console.log("score before = " + score);
+    // console.log("typeof = " + typeof score);
+
+    // Updates score
     score += a;
-    console.log("score after = " + score);
+    // console.log("score after = " + score);
 
-    console.log("score = " + score);
+    // console.log("score = " + score);
+
+    // Log updated score into session storage
     sessionStorage.setItem("score", score);
-    this.displayScore(score);
+
+    // Calls displayscore
+    game.displayScore(score);
   },
 
-  //! Displays score
+  /* Displays score*/
   displayScore(score) {
+    // console.log("displayScore");
     scoreElmt = document.querySelector(".header__score__points");
     scoreElmt.innerText = score;
   },
 
-  displayChoices(userColor, userShape, computerColor, computerShape) {
-    // console.log("display choices est appelé");
-
-    // hides game area
-    gameElmt = document.querySelector(".container");
-    gameElmt.classList.toggle("hidden");
-
-    // displays results area
-    resultsElmt = document.querySelector(".results");
-    resultsElmt.classList.toggle("hidden");
-
+  displayUserChoice(userColor, userShape) {
+    // console.log(
+    //   "displayUserChoice // calls waiting for Comp to remove dark-blue class"
+    // );
     // user's choice: image + shape
-    userCircleElmt = document.querySelector(
-      ".results__choice__singular.user div"
-    );
+    userCircleElmt = document.querySelector(".user .results__choice__logo");
     userCircleElmt.classList.remove("red", "yellow", "blue");
     userCircleElmt.classList.add(userColor);
 
     userImgElmt = userCircleElmt.querySelector("img");
     userImgElmt.src = "images/icon-" + userShape + ".svg";
+    userImgElmt.alt = userShape + " logo";
 
-    // displays computer's choice: image + shape
-    computerCircleElmt = document.querySelector(
-      ".results__choice__singular.computer div"
+    // On retire la classe dark-blue
+    game.waitingForComp();
+  },
+
+  waitingForComp() {
+    // console.log("waitingForComp adds/remove dark-blue class");
+    // Add / Remove class dark-blue
+    wrapperElmt = document.querySelector(
+      ".results__choice__logo__wrapper-comp"
     );
-    console.log(computerCircleElmt);
-    computerCircleElmt.classList.remove("red", "yellow", "blue");
+    wrapperElmt.classList.toggle("dark-blue");
+  },
+
+  /* Returns a promise when timeout is done */
+  delay(time) {
+    // console.log("delay");
+    return new Promise((resolve) => setTimeout(resolve, time));
+  },
+
+  displayComputerChoice(computerColor, computerShape) {
+    // console.log("displayComputerChoice // calls waitingForComp");
+
+    // Removes "dark-blue"
+    game.waitingForComp();
+
+    // Displays computer's choice: color + shadow + shape
+
+    // Color + shadow
+    const computerCircleElmt = document.querySelector(
+      ".computer .results__choice__logo"
+    );
+    // console.log(computerCircleElmt);
     computerCircleElmt.classList.add(computerColor);
+    computerCircleElmt.classList.add("shadow");
+
+    // Image
     computerImgElmt = computerCircleElmt.querySelector("img");
     computerImgElmt.src = "images/icon-" + computerShape + ".svg";
+    computerImgElmt.alt = computerShape + " logo";
   },
 
+  /* Shows / hides the element for text result */
+  resultShowHide() {
+    // console.log("resultsShowHide toggle opaque and appear on results__result");
+    // Remove / add class opaque
+    // Remove / add class appear
+    resultElmt = document.querySelector(".results__result");
+    resultElmt.classList.toggle("opaque");
+    resultElmt.classList.toggle("appear");
+  },
+
+  /* Writes down whether the user won */
   displayResult(result) {
-    const resultElmt = document.querySelector(".results__result__text");
-    resultElmt.innerText = result;
+    // Calls resultsShowHide to show results
+    game.resultShowHide();
+
+    // Writes the result
+    const resultTxtElmt = document.querySelector(".results__result__text");
+    resultTxtElmt.innerText = result;
   },
 
-  displayGame() {
-    // displays game area
+  reinitializeResultsBoard() {
+    console.log(
+      "reinitializeResultsBoard // calls resultShowHide (pour cacher : class opaque) + retire les classes couleur et ombres sur le logo computer"
+    );
+
+    game.resultShowHide();
+
+    const computerCircleElmt = document.querySelector(
+      ".computer .results__choice__logo"
+    );
+    computerCircleElmt.classList.remove("red", "yellow", "blue");
+    computerCircleElmt.classList.remove("shadow");
+    computerImgElmt = computerCircleElmt.querySelector("img");
+    computerImgElmt.src = "";
+    computerImgElmt.alt = "";
+  },
+
+  /* Switches between game board and results area */
+  switchBoards() {
+    // Hides / shows game area
+    console.log("switchBoards // toggle hidden sur container + results");
     gameElmt = document.querySelector(".container");
     gameElmt.classList.toggle("hidden");
 
-    // hides results area
+    // Hides / shows results area
     resultsElmt = document.querySelector(".results");
     resultsElmt.classList.toggle("hidden");
   },
