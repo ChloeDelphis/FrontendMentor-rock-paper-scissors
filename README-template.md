@@ -53,7 +53,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+I still need to learn a lot about animation.  
+I should also train with z-index (I couldn't make a halo around winner's logo that is underneath other elements)
 
 ### Useful resources
 

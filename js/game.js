@@ -53,7 +53,7 @@ const game = {
     // Calls displayComputerChoice
     // console.log("start timer");
 
-    await game.delay(3000);
+    await game.delay(2000);
     // console.log("délai de 3.6 secondes, j'appelle displayComputerChoice");
     game.displayComputerChoice(computerColor, computerShape);
 
@@ -76,22 +76,14 @@ const game = {
     ) {
       game.displayResult("You lose");
       game.updateScore(-1);
-      game.winnerHalo("comp");
 
       // console.log("You lose");
     } else {
       game.displayResult("You win");
       game.updateScore(1);
-      game.winnerHalo("user");
 
       // console.log("You win");
     }
-  },
-
-  winnerHalo(winner) {
-    let spanWinner = document.querySelector(".img-" + winner);
-    spanWinner.classList.add("winner-halo");
-    spanWinner.classList.add("animate");
   },
 
   /* Makes computer pick a color */
@@ -232,14 +224,6 @@ const game = {
     computerImgElmt = computerCircleElmt.querySelector("img");
     computerImgElmt.src = "";
     computerImgElmt.alt = "";
-
-    const wrappers = document.querySelectorAll(
-      ".results__choice__logo__wrapper-user, .results__choice__logo__wrapper-comp "
-    );
-    wrappers.forEach((element) => {
-      element.classList.remove("winner-halo");
-      element.classList.remove("animate");
-    });
   },
 
   /* Switches between game board and results area */
