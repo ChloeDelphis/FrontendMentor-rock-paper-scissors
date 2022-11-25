@@ -41,52 +41,64 @@
 
     <main>
       <div class="container">
-        <div
-          class="container__game__circle circle blue"
+        <button
+          class="container__game circle shadow blue"
           id="blue"
           data-shape="paper"
         >
-          <img src="images/icon-paper.svg" alt="icon paper" />
-        </div>
+          <span class="wrapper">
+            <img src="images/icon-paper.svg" alt="icon paper" />
+          </span>
+        </button>
 
-        <div
-          class="container__game__circle circle yellow"
+        <button
+          class="container__game circle shadow yellow"
           id="yellow"
           data-shape="scissors"
         >
-          <img src="images/icon-scissors.svg" alt="icon scissors" />
-        </div>
+          <span class="wrapper">
+            <img src="images/icon-scissors.svg" alt="icon scissors" />
+          </span>
+        </button>
 
-        <div
-          class="container__game__circle circle red"
+        <button
+          class="container__game circle shadow red"
           id="red"
           data-shape="rock"
         >
-          <img src="images/icon-rock.svg" alt="icon rock" />
-        </div>
+          <span class="wrapper">
+            <img src="images/icon-rock.svg" alt="icon rock" />
+          </span>
+        </button>
       </div>
 
       <div class="results hidden">
         <div class="results__choice user">
-          <div class="results__choice__logo circle red">
-            <img src="images/icon-rock.svg" alt="icon rock" />
+          <div class="results__choice__logo circle user">
+            <span class="results__choice__logo__wrapper-user wrapper">
+              <img class="img-user" src="" alt="" />
+            </span>
           </div>
           <div class="results__choice__text">You picked</div>
         </div>
         <div class="results__choice computer">
-          <div class="results__choice__logo circle yellow">
-            <img src="images/icon-scissors.svg" alt="icon scissors" />
+          <div class="results__choice__logo circle">
+            <span class="results__choice__logo__wrapper-comp wrapper">
+              <img class="img-comp" src="" alt="" />
+            </span>
           </div>
           <div class="results__choice__text">The House picked</div>
         </div>
-        <div class="results__result">
-          <div class="results__result__text">You win</div>
-          <div class="results__result__play-again">Play again</div>
+        <div class="results__result opaque">
+          <div class="results__result__text"></div>
+          <button class="results__result__play-again">Play again</button>
         </div>
       </div>
-
-      <div class="seerules text">rules</div>
     </main>
+
+    <aside>
+      <button class="seerules text">rules</button>
+    </aside>
 
     <footer>
       <div class="attribution text">

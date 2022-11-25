@@ -1,34 +1,92 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600;700&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  color: inherit;
+}
+
+.shaded {
+  opacity: 0.33;
+}
+
+.opaque {
+  flex-basis: 0%;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.appear {
+  -webkit-animation: appearance 0.5s ease-out;
+          animation: appearance 0.5s ease-out;
+}
+
+@-webkit-keyframes appearance {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appearance {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 html {
   font-size: 70%;
   font-family: "Barlow Semi Condensed", sans-serif;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 600;
   color: white;
 }
 html body {
-  height: 100vh;
-  background-color: hsl(214deg, 47%, 23%);
-  padding: 5% 10% 5% 10%;
+  background: radial-gradient(circle at 50% 10%, hsl(214deg, 47%, 23%), hsl(237deg, 49%, 15%));
+  padding: 1rem 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-html body .hidden {
-  visibility: hidden;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 html body .rules {
   z-index: 1;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   background-color: white;
   padding: 10% 5% 5% 5%;
   display: flex;
@@ -39,6 +97,7 @@ html body .rules {
 html body .rules__name {
   color: #343d5b;
   font-size: 2rem;
+  font-weight: 700;
   text-align: center;
 }
 html body .rules__image {
@@ -49,11 +108,12 @@ html body .rules__cross {
   height: 1.5rem;
 }
 html body header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   border: solid 0.2rem hsl(217deg, 16%, 45%);
   border-radius: 0.8rem;
-  padding: 5%;
+  padding: 1rem;
 }
 html body header .header__title {
   display: flex;
@@ -65,105 +125,161 @@ html body header .header__title img {
   width: 6rem;
 }
 html body header .header__score {
-  height: 5rem;
+  color: hsl(229deg, 25%, 31%);
   width: 5.5rem;
   background-color: white;
   border-radius: 0.3rem;
   padding: 2%;
-  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-html body header .header__score__name {
-  height: 33%;
-  color: hsl(229deg, 64%, 46%);
-  font-size: 0.8rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-html body header .header__score__points {
-  height: 66%;
-  color: hsl(229deg, 25%, 31%);
-  vertical-align: middle;
-  font-size: 2.2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-html body main {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-html body main .circle {
-  position: absolute;
-  background-color: white;
-  border-radius: 50%;
-  height: 5rem;
-  width: 5rem;
-  padding: 3rem;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
-html body main .circle img {
+html body header .header__score__name {
+  font-size: 0.8rem;
+}
+html body header .header__score__points {
+  vertical-align: middle;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+html body main {
+  width: 80vmin;
+  height: 75vmin;
+  display: flex;
+  align-items: center;
+}
+html body main .circle {
+  margin: 0 6vw;
+  border-radius: 50%;
+  height: 8rem;
+  width: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html body main .circle .wrapper {
+  background-color: white;
+  display: inline-flex;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  justify-content: center;
+  align-items: center;
+}
+html body main .circle .wrapper img {
   width: 3rem;
 }
+html body main .circle .dark-blue {
+  background-color: hsl(214deg, 47%, 23%);
+  -webkit-animation: pulse 1.8s 2 normal;
+          animation: pulse 1.8s 2 normal;
+}
+@-webkit-keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 20px hsla(213deg, 18%, 80%, 0.232);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 20px hsla(213deg, 18%, 80%, 0.232);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+html body main .circle .winner-halo ::after {
+  content: "";
+  position: relative;
+  border-radius: 50%;
+  z-index: -200;
+}
+html body main .circle .animate {
+  -webkit-animation: halo 2s linear normal;
+          animation: halo 2s linear normal;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  z-index: -250;
+}
+@-webkit-keyframes halo {
+  0% {
+    box-shadow: 0 0 0 0;
+  }
+  100% {
+    position: relative;
+    border-radius: 50%;
+    z-index: -200;
+    box-shadow: 0 0 0 2rem rgba(255, 255, 255, 0), 0 0 0 3rem rgba(255, 255, 255, 0.034), 0 0 0 4rem rgba(255, 255, 255, 0.459);
+  }
+}
+@keyframes halo {
+  0% {
+    box-shadow: 0 0 0 0;
+  }
+  100% {
+    position: relative;
+    border-radius: 50%;
+    z-index: -200;
+    box-shadow: 0 0 0 2rem rgba(255, 255, 255, 0), 0 0 0 3rem rgba(255, 255, 255, 0.034), 0 0 0 4rem rgba(255, 255, 255, 0.459);
+  }
+}
+html body main .shadow {
+  box-shadow: inset 0rem -4px rgba(0, 0, 0, 0.2);
+}
 html body main .blue {
-  border: solid 1rem hsl(230deg, 89%, 62%);
+  background: linear-gradient(to bottom, hsl(230deg, 89%, 62%), hsl(230deg, 89%, 65%));
 }
 html body main .yellow {
-  border: solid 1rem hsl(39deg, 89%, 49%);
+  background: linear-gradient(to bottom, hsl(39deg, 89%, 49%), hsl(40deg, 84%, 53%));
 }
 html body main .red {
-  border: solid 1rem hsl(349deg, 71%, 52%);
+  background: linear-gradient(to bottom, hsl(349deg, 71%, 52%), hsl(349deg, 70%, 56%));
 }
 html body main .container {
-  position: relative;
-  width: 100%;
-  height: 80%;
+  height: 100%;
+  margin: 0 auto;
   background-image: url(images/bg-triangle.svg);
-  background-size: 13rem;
+  background-size: 60%;
   background-repeat: no-repeat;
   background-position: center 50%;
-}
-html body main .container #blue {
-  top: 14%;
-  left: 6%;
-}
-html body main .container #yellow {
-  top: 14%;
-  right: 6%;
-}
-html body main .container #red {
-  left: 33%;
-  bottom: 18%;
-}
-html body main .results {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 60%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+html body main .results {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
 }
 html body main .results__choice {
   width: 50%;
-  height: 60%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 html body main .results__choice__logo {
-  position: static;
+  position: relative;
+  z-index: 50;
 }
 html body main .results__choice__text {
-  margin-top: 1rem;
+  margin: 1rem;
   font-size: 1rem;
+  text-align: center;
 }
 html body main .results__result {
   width: 100%;
@@ -175,6 +291,7 @@ html body main .results__result {
 }
 html body main .results__result__text {
   font-size: 3rem;
+  margin: 1rem;
 }
 html body main .results__result__play-again {
   display: inline-block;
@@ -187,221 +304,313 @@ html body main .results__result__play-again {
   margin-right: auto;
   padding: 0.8rem 4rem;
 }
-html .seerules {
-  display: inline-block;
-  font-size: 1 rem;
-  margin-top: 1rem;
+html body main .results__result__play-again:hover {
+  color: red;
+}
+html body aside .seerules {
+  display: block;
+  background-color: transparent;
+  font-size: 1rem;
   margin-left: auto;
   margin-right: auto;
   border: solid white 0.1rem;
   border-radius: 0.8rem;
   padding: 0.8rem 4rem;
 }
-html footer {
-  text-align: center;
-  font-weight: normal;
+html body footer {
+  font-weight: 300;
   text-transform: none;
   font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-html footer a {
+html body footer a {
   text-decoration: none;
   color: inherit;
   text-decoration: underline;
 }
+html body .hidden {
+  display: none !important;
+}
 
-@media (min-width: 375px) {
-  html body main .container #blue {
-    top: 12%;
-    left: 12%;
-  }
-  html body main .container #yellow {
-    top: 12%;
-    right: 12%;
-  }
-  html body main .container #red {
-    left: 35%;
-    bottom: 18%;
-  }
-}
-@media (min-width: 425px) {
-  html body main .container #blue {
-    top: 12%;
-    left: 15%;
-  }
-  html body main .container #yellow {
-    top: 12%;
-    right: 15%;
-  }
-  html body main .container #red {
-    left: 37%;
-    bottom: 18%;
-  }
-}
 @media (min-width: 768px) {
-  html body {
-    padding: 5% 10% 5% 10%;
+  html .opaque {
+    flex-basis: 0%;
+    opacity: 0;
+    transform: scale(0);
+  }
+  html .appear {
+    -webkit-animation: appearance 0.8s ease-in;
+            animation: appearance 0.8s ease-in;
+  }
+  @-webkit-keyframes appearance {
+    0% {
+      opacity: 0;
+      flex-basis: 0%;
+    }
+    50% {
+      opacity: 0;
+      flex-basis: 50%;
+    }
+    80% {
+      opacity: 0;
+    }
+    99% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+      flex-basis: 100%;
+    }
+  }
+  @keyframes appearance {
+    0% {
+      opacity: 0;
+      flex-basis: 0%;
+    }
+    50% {
+      opacity: 0;
+      flex-basis: 50%;
+    }
+    80% {
+      opacity: 0;
+    }
+    99% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+      flex-basis: 100%;
+    }
+  }
+  html body header {
+    width: 60%;
+  }
+  html body header .header__title img {
+    width: 8rem;
+  }
+  html body header .header__score {
+    width: 20%;
+    padding: 1rem;
+  }
+  html body header .header__score__name {
+    font-size: 1rem;
+  }
+  html body header .header__score__points {
+    font-size: 2.5rem;
   }
   html body .rules {
+    border-radius: 1rem;
+    padding: 2%;
+    top: 23vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 60vh;
+    width: 60vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  html body .rules__name {
+    order: 1;
+    width: 80%;
+    font-size: 2rem;
+    text-align: left;
+  }
+  html body .rules__image {
+    order: 3;
+    height: 70%;
+  }
+  html body .rules__cross {
+    order: 2;
+    width: 2rem;
+    height: 2rem;
+  }
+  html body main {
+    width: 80vw;
+  }
+  html body main .container {
+    width: 60%;
+  }
+  html body main .results {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: nowrap;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+  }
+  html body main .results :nth-child(2) {
+    order: 3;
+  }
+  html body main .results :nth-child(3) {
+    order: 2;
+  }
+  html body main .results__choice {
+    width: 30%;
+  }
+  html body main .results__choice__logo {
+    order: 4;
+  }
+  html body main .results__choice__text {
+    order: 1;
+  }
+  html body main__result {
+    justify-content: center;
+  }
+  html aside .seerules {
+    font-size: 1rem;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+  }
+  html footer {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  html body header {
+    margin-top: 1rem;
+    border-width: 0.3rem;
+  }
+  html body header .header__title img {
+    width: 10rem;
+  }
+  html body header .header__score {
+    border-radius: 0.8rem;
+  }
+  html body header .header__score__name {
+    font-size: 1.5rem;
+  }
+  html body header .header__score__points {
+    font-size: 3.5rem;
+  }
+  html body .rules__name {
+    font-size: 3rem;
+  }
+  html body .rules__cross {
+    width: 3rem;
+    height: 3rem;
+  }
+  html body main .circle {
+    height: 12rem;
+    width: 12rem;
+    margin: 0 4vw;
+    z-index: 200;
+  }
+  html body main .circle .wrapper {
+    width: 9rem;
+    height: 9rem;
+  }
+  html body main .circle .wrapper img {
+    width: 4rem;
+  }
+  html body main .results__choice__text {
+    margin: 2rem;
+    font-size: 2rem;
+  }
+  html body main .results__result__text {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+  }
+  html body main .results__result__play-again {
+    font-size: 2rem;
+  }
+  html body aside .seerules {
+    font-size: 2rem;
+  }
+  html body footer {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 1440px) {
+  html body header {
+    width: 50%;
+  }
+  html body header .header__title img {
+    width: 12rem;
+  }
+  html body header .header__score__points {
+    font-size: 6rem;
   }
   html body .rules__name {
     font-size: 4rem;
   }
   html body .rules__cross {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  html body header .header__title img {
-    width: 15rem;
-  }
-  html body header .header__score {
-    height: 10rem;
-    width: 10.5rem;
-  }
-  html body header .header__score__name {
-    font-size: 2rem;
-  }
-  html body header .header__score__points {
-    font-size: 5rem;
+    width: 4rem;
+    height: 4rem;
   }
   html body main .circle {
-    padding: 10%;
+    height: 16rem;
+    width: 16rem;
+    margin: 0 5vw;
   }
-  html body main .circle img {
-    width: 5rem;
+  html body main .circle .wrapper {
+    width: 12rem;
+    height: 12rem;
   }
-  html body main .blue {
-    border: solid 2rem hsl(230deg, 89%, 62%);
-  }
-  html body main .yellow {
-    border: solid 2rem hsl(39deg, 89%, 49%);
-  }
-  html body main .red {
-    border: solid 2rem hsl(349deg, 71%, 52%);
-  }
-  html body main .container {
-    background-size: 40vw;
-  }
-  html body main .container #blue {
-    top: 14%;
-  }
-  html body main .container #yellow {
-    top: 14%;
-  }
-  html body main .container #red {
-    bottom: 18%;
-  }
-  html body main .seerules,
-html body main .results__result__play-again {
-    font-size: 2.5rem;
-  }
-  html body main .results__choice__text {
-    font-size: 2.5em;
-  }
-  html body main .results__result__text {
-    font-size: 6rem;
-  }
-  html body main .results__result__play-again {
-    padding: 2rem 8rem;
-  }
-  html body main .seerules {
-    margin-top: 4rem;
-  }
-  html body footer {
-    font-size: 1.8rem;
-  }
-}
-@media (min-width: 1024px) {
-  html body {
-    padding: 5% 10% 3% 10%;
-    align-items: center;
-  }
-  html body .rules {
-    height: 50%;
-    width: 50%;
-    top: 20%;
-    left: 20%;
-    padding: 5%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-  html body .rules__name {
-    text-align: left;
-    order: 1;
-    flex-basis: 90%;
-  }
-  html body .rules__image {
-    order: 3;
-    height: 90%;
-  }
-  html body .rules__cross {
-    order: 2;
-    text-align: right;
-    width: 2rem;
-    height: 2rem;
-  }
-  html body header {
-    width: 80%;
-  }
-  html body header .header__title {
-    flex-basis: 25%;
-  }
-  html body main {
-    margin-top: 5%;
-  }
-  html body main .container #blue {
-    top: 0%;
-    left: 15%;
-  }
-  html body main .container #yellow {
-    top: 0;
-    right: 15%;
-  }
-  html body main .container #red {
-    left: 37%;
-    bottom: 10%;
+  html body main .circle .wrapper img {
+    width: 6rem;
   }
   html body main .results {
     width: 80%;
-    align-items: space-between;
-    margin-top: 0%;
-  }
-  html body main .results__choice__singular {
-    width: 30%;
-  }
-  html body main .results__choice__singular .circle {
-    margin-top: 15%;
-  }
-  html body main .results__choice__text {
-    top: 2em;
-  }
-  html body main .results__result {
-    position: absolute;
-    left: 33.3%;
-    top: 25%;
-  }
-  html body main .seerules {
-    position: fixed;
-    bottom: 8%;
-    right: 5%;
-  }
-  html body footer .attribution {
-    width: 100%;
   }
 }
-@media (min-width: 1440px) {
-  html body main {
-    margin-top: 0;
+@media (min-width: 2560px) {
+  html body header {
+    margin-top: 4rem;
+    padding: 4rem;
+    border-radius: 2rem;
   }
-  html body main .results__choice__singular .circle {
-    margin-top: 8%;
+  html body header .header__title img {
+    width: 25rem;
   }
-  html body main .results__result {
-    left: 38%;
+  html body header .header__score__name {
+    font-size: 4rem;
   }
-  html body footer .attribution {
-    margin-top: 6rem;
+  html body header .header__score__points {
+    font-size: 9rem;
+  }
+  html body .rules {
+    border-radius: 2rem;
+  }
+  html body .rules__name {
+    font-size: 6rem;
+  }
+  html body .rules__cross {
+    width: 5rem;
+    height: 5rem;
+  }
+  html body main .circle {
+    height: 32rem;
+    width: 32rem;
+    margin: 0 4vw;
+  }
+  html body main .circle .wrapper {
+    width: 24rem;
+    height: 24rem;
+  }
+  html body main .circle .wrapper img {
+    width: 12rem;
+  }
+  html body main .results__choice__text {
+    margin: 4rem;
+    font-size: 4rem;
+  }
+  html body main .results__result__text {
+    font-size: 10rem;
+    margin-bottom: 5rem;
+  }
+  html body main .results__result__play-again {
+    font-size: 4rem;
+  }
+  html body aside .seerules {
+    font-size: 6rem;
+    border-radius: 2rem;
+  }
+  html body footer {
+    margin-bottom: 3rem;
+    font-size: 3rem;
   }
 }/*# sourceMappingURL=style.css.map */
