@@ -1,5 +1,3 @@
-//! vérifier les let et const partout (dans les fonctions)
-
 const game = {
   init: function () {
     // For each choice listens to the click and launches the game
